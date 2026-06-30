@@ -24,7 +24,6 @@ import SpotlightCard from "@/components/reactbits/SpotlightCard";
 import ShinyText from "@/components/reactbits/ShinyText";
 import BlurText from "@/components/reactbits/BlurText";
 import DecryptedText from "@/components/reactbits/DecryptedText";
-import CircularText from "@/components/reactbits/CircularText";
 
 // Form Interface
 interface FormData {
@@ -49,6 +48,20 @@ export default function LandingPage() {
   
   // Floor plan active tab state
   const [activeFloorTab, setActiveFloorTab] = useState<"2bhk" | "2.5bhk" | "3bhk">("2bhk");
+  const [heroBg, setHeroBg] = useState<string>("/images/hero-img-d.png");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setHeroBg("/images/hero-img-m.png");
+      } else {
+        setHeroBg("/images/hero-img-d.png");
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Form states
   const [heroForm, setHeroForm] = useState<FormData>({
@@ -267,7 +280,7 @@ export default function LandingPage() {
       <section
       id="hero"
       className="relative min-h-screen pt-24 lg:pt-0 flex items-center justify-center bg-[#1a2744] bg-cover bg-center overflow-hidden z-10"
-      style={{ backgroundImage: "url('/images/building_hero.jpg')", backgroundPosition: "center", backgroundSize: "cover" }}
+      style={{ backgroundImage: `url('${heroBg}')`, backgroundPosition: "center", backgroundSize: "cover" }}
       >
       {/* Dark overlay: rgba(15, 20, 40, 0.65) */}
       <div className="absolute inset-0 bg-[#0f1428]/65 z-[2]"></div>
@@ -431,15 +444,6 @@ export default function LandingPage() {
       <p className="text-white text-[10px] font-semibold bg-black/40 px-3 py-1.5 rounded backdrop-blur-sm border border-white/5">
       MahaRERA Reg No: P50500049468 | P50500080409
       </p>
-      </div>
-      {/* Floating circular text badge for premium aesthetic */}
-      <div className="absolute bottom-20 left-12 z-[3] hidden xl:block pointer-events-none opacity-40">
-        <CircularText
-          text=" PREMIUM RESIDENCES * MIHAN NAGPUR * IJM FIRST CITY * "
-          spinDuration={30}
-          onHover="slowDown"
-          className="w-[130px] h-[130px] text-[7px] text-[#C9A227] tracking-[2px]"
-        />
       </div>
       </section>
 
