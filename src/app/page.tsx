@@ -275,13 +275,13 @@ export default function LandingPage() {
       {/* Redesigned Hero: Full Viewport, Full Bleed Building Background with Dark Overlay */}
       <section
       id="hero"
-      className="relative pt-20 pb-16 lg:min-h-screen lg:pt-0 lg:pb-0 flex flex-col lg:flex-row items-center justify-start lg:justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
+      className="relative pt-20 pb-4 lg:min-h-screen lg:pt-0 lg:pb-0 flex flex-col lg:flex-row items-center justify-start lg:justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
       style={isMobile ? {} : { backgroundImage: "url('/images/hero_sec_bg.png')", backgroundPosition: "center", backgroundSize: "cover" }}
       >
       {/* Dark overlay: rgba(15, 20, 40, 0.65) */}
       <div className="absolute inset-0 bg-[#0f1428]/65 z-[2]"></div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-12 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-2 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
       {/* Left Column: Over the image content (Aligned self-end/bottom-left on desktop) */}
       <div className="lg:col-span-5 text-center lg:text-left space-y-4 lg:space-y-6 z-[3] text-white flex flex-col items-center lg:items-start w-full">
@@ -339,8 +339,40 @@ export default function LandingPage() {
           </p>
         </div>
 
-        {/* Desktop-only Stacked Form Card */}
-        <div className="hidden lg:block w-full max-w-sm mt-4 bg-[#0a0f23]/85 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl p-6 text-left">
+        {/* Mobile-only building render image */}
+        <div className="w-full mt-6 block lg:hidden z-[3] px-2 max-w-sm">
+          <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+            <Image 
+              src="/images/hero-img-m.png" 
+              alt="IJM First City Building Render" 
+              width={400} 
+              height={500} 
+              className="w-full h-auto object-cover" 
+              priority
+            />
+            {/* Soft gradient bottom overlay to blend image into bg */}
+            <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-[#0a1128] to-transparent"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column: Building Render Image + Stacked Form Card (hidden on mobile/tablet) */}
+      <div className="hidden lg:flex lg:col-span-7 flex-col w-full z-[3] lg:self-start lg:pt-4 pl-6 space-y-4">
+        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f23]/40 backdrop-blur-sm">
+          <Image 
+            src="/images/hero-img-d.png" 
+            alt="IJM First City Building Render" 
+            width={850} 
+            height={550} 
+            className="w-full h-auto object-cover" 
+            priority
+          />
+          {/* Soft gradient edge fade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1128]/20 to-transparent"></div>
+        </div>
+
+        {/* Stacked Form Card below the Image */}
+        <div className="w-full max-w-md mx-auto bg-[#0a0f23]/85 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl p-6 text-left">
           <div className="text-center mb-4">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">
               BOOK YOUR NEW HOME
@@ -423,38 +455,6 @@ export default function LandingPage() {
               Get Best Price
             </button>
           </form>
-        </div>
-
-        {/* Mobile-only building render image */}
-        <div className="w-full mt-6 block lg:hidden z-[3] px-2 max-w-sm">
-          <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-            <Image 
-              src="/images/hero-img-m.png" 
-              alt="IJM First City Building Render" 
-              width={400} 
-              height={500} 
-              className="w-full h-auto object-cover" 
-              priority
-            />
-            {/* Soft gradient bottom overlay to blend image into bg */}
-            <div className="absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-[#0a1128] to-transparent"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Right Column: Wide Building Render Image (hidden on mobile/tablet) */}
-      <div className="hidden lg:block lg:col-span-7 w-full z-[3] pl-6">
-        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f23]/40 backdrop-blur-sm">
-          <Image 
-            src="/images/hero-img-d.png" 
-            alt="IJM First City Building Render" 
-            width={850} 
-            height={550} 
-            className="w-full h-auto object-cover" 
-            priority
-          />
-          {/* Soft gradient edge fade */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1128]/20 to-transparent"></div>
         </div>
       </div>
 
