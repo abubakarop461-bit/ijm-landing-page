@@ -20,6 +20,12 @@ import {
   Check
 } from "lucide-react";
 
+import SpotlightCard from "@/components/reactbits/SpotlightCard";
+import ShinyText from "@/components/reactbits/ShinyText";
+import BlurText from "@/components/reactbits/BlurText";
+import DecryptedText from "@/components/reactbits/DecryptedText";
+import CircularText from "@/components/reactbits/CircularText";
+
 // Form Interface
 interface FormData {
   name: string;
@@ -271,13 +277,28 @@ export default function LandingPage() {
       {/* Left Column: Over the image content (Aligned self-end/bottom-left on desktop) */}
       <div className="lg:col-span-7 text-center lg:text-left space-y-4 lg:space-y-6 z-[3] text-white lg:self-end lg:mb-4 flex flex-col items-center lg:items-start w-full">
         <div className="space-y-1">
-          <span className="text-[#C9A227] font-bold text-[10px] sm:text-xs uppercase tracking-widest block">MIHAN, Nagpur</span>
-          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black tracking-tight leading-none uppercase text-white">
-            IJM FIRST CITY
-          </h1>
-          <h2 className="text-lg sm:text-2xl lg:text-[24px] font-bold text-white/95">
-            2, 2.5 & 3 BHK Apartments
-          </h2>
+          <ShinyText 
+            text="MIHAN, Nagpur" 
+            className="text-[#C9A227] font-bold text-[10px] sm:text-xs uppercase tracking-widest block"
+            color="#C9A227" 
+            shineColor="#ffffff" 
+            speed={3} 
+          />
+          <BlurText 
+            text="IJM FIRST CITY" 
+            className="text-3xl sm:text-5xl lg:text-[52px] font-black tracking-tight leading-none uppercase text-white justify-center lg:justify-start" 
+            delay={100} 
+            animateBy="words" 
+            direction="bottom" 
+          />
+          <div className="text-lg sm:text-2xl lg:text-[24px] font-bold text-white/95">
+            <DecryptedText 
+              text="2, 2.5 & 3 BHK Apartments" 
+              animateOn="hover" 
+              speed={40} 
+              className="text-lg sm:text-2xl lg:text-[24px] font-bold text-white/95" 
+            />
+          </div>
         </div>
 
         {/* Specifications list: horizontal row on mobile, vertical stack on desktop */}
@@ -411,11 +432,14 @@ export default function LandingPage() {
       MahaRERA Reg No: P50500049468 | P50500080409
       </p>
       </div>
-      {/* Mobile RERA display */}
-      <div className="absolute bottom-4 right-4 z-10 lg:hidden">
-      <p className="text-white text-[9px] font-semibold bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/5">
-      MahaRERA Reg No: P50500049468 | P50500080409
-      </p>
+      {/* Floating circular text badge for premium aesthetic */}
+      <div className="absolute bottom-20 left-12 z-[3] hidden xl:block pointer-events-none opacity-40">
+        <CircularText
+          text=" PREMIUM RESIDENCES * MIHAN NAGPUR * IJM FIRST CITY * "
+          spinDuration={30}
+          onHover="slowDown"
+          className="w-[130px] h-[130px] text-[7px] text-[#C9A227] tracking-[2px]"
+        />
       </div>
       </section>
 
@@ -627,7 +651,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 2BHK */}
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:border-gold/50 flex flex-col justify-between border-t-4 border-t-gold">
+            <SpotlightCard spotlightColor="rgba(201, 162, 39, 0.12)" className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:border-gold/50 flex flex-col justify-between border-t-4 border-t-gold">
               <div className="p-6 sm:p-8 space-y-4">
                 <div className="flex justify-between items-start">
                   <span className="inline-block bg-[#1a2744]/10 text-navy font-bold text-xs px-3 py-1 rounded-full uppercase">Spacious living</span>
@@ -661,10 +685,10 @@ export default function LandingPage() {
                   Get Pricing Sheet
                 </button>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Card 2.5BHK - Highlighted */}
-            <div className="bg-white rounded-lg border-2 border-gold overflow-hidden shadow-2xl relative flex flex-col justify-between transform lg:scale-[1.05] transition-all duration-300 border-t-4 border-t-gold z-10">
+            <SpotlightCard spotlightColor="rgba(201, 162, 39, 0.15)" className="bg-white rounded-lg border-2 border-gold overflow-hidden shadow-2xl relative flex flex-col justify-between transform lg:scale-[1.05] transition-all duration-300 border-t-4 border-t-gold z-10">
               <div className="absolute top-0 right-0 bg-[#C9A227] text-[#1a2744] text-[10px] font-extrabold uppercase px-4 py-1.5 tracking-wider rounded-bl-lg">
                 Most Popular
               </div>
@@ -702,10 +726,10 @@ export default function LandingPage() {
                   Get Pricing Sheet
                 </button>
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Card 3BHK */}
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:border-gold/50 flex flex-col justify-between border-t-4 border-t-gold">
+            <SpotlightCard spotlightColor="rgba(201, 162, 39, 0.12)" className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:border-gold/50 flex flex-col justify-between border-t-4 border-t-gold">
               <div className="p-6 sm:p-8 space-y-4">
                 <div className="flex justify-between items-start">
                   <span className="inline-block bg-[#1a2744]/10 text-navy font-bold text-xs px-3 py-1 rounded-full uppercase">Ultimate Luxury</span>
@@ -739,7 +763,7 @@ export default function LandingPage() {
                   Get Pricing Sheet
                 </button>
               </div>
-            </div>
+            </SpotlightCard>
 
           </div>
 
