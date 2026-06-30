@@ -275,16 +275,16 @@ export default function LandingPage() {
       {/* Redesigned Hero: Full Viewport, Full Bleed Building Background with Dark Overlay */}
       <section
       id="hero"
-      className="relative min-h-screen pt-24 lg:pt-0 flex items-center justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
+      className="relative pt-24 pb-16 lg:min-h-screen lg:pt-0 lg:pb-0 flex flex-col lg:flex-row items-center justify-start lg:justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
       style={isMobile ? {} : { backgroundImage: "url('/images/hero_sec_bg.png')", backgroundPosition: "center", backgroundSize: "cover" }}
       >
       {/* Dark overlay: rgba(15, 20, 40, 0.65) */}
       <div className="absolute inset-0 bg-[#0f1428]/65 z-[2]"></div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
       {/* Left Column: Over the image content (Aligned self-end/bottom-left on desktop) */}
-      <div className="lg:col-span-7 text-center lg:text-left space-y-4 lg:space-y-6 z-[3] text-white lg:self-end lg:mb-4 flex flex-col items-center lg:items-start w-full">
+      <div className="lg:col-span-5 text-center lg:text-left space-y-4 lg:space-y-6 z-[3] text-white flex flex-col items-center lg:items-start w-full">
         <div className="space-y-1">
           <ShinyText 
             text="MIHAN, Nagpur" 
@@ -339,6 +339,92 @@ export default function LandingPage() {
           </p>
         </div>
 
+        {/* Desktop-only Stacked Form Card */}
+        <div className="hidden lg:block w-full max-w-sm mt-4 bg-[#0a0f23]/85 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl p-6 text-left">
+          <div className="text-center mb-4">
+            <h3 className="text-xs font-black text-white uppercase tracking-wider">
+              BOOK YOUR NEW HOME
+            </h3>
+            <div className="w-10 h-[2px] bg-gold mx-auto mt-2 rounded-full"></div>
+          </div>
+
+          <form onSubmit={handleHeroSubmit} className="space-y-3.5">
+            <div>
+              <label className="block text-[10px] font-semibold text-white/80 uppercase tracking-wider mb-1">Full Name*</label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/40">
+                  <User size={14} />
+                </span>
+                <input
+                  type="text"
+                  required
+                  value={heroForm.name}
+                  onChange={(e) => setHeroForm({...heroForm, name: e.target.value})}
+                  placeholder="John Doe"
+                  className={`w-full pl-9 pr-3 py-2 bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs text-white`}
+                />
+              </div>
+              {errors.name && <p className="text-red-500 text-[10px] mt-0.5">{errors.name}</p>}
+            </div>
+
+            <div>
+              <label className="block text-[10px] font-semibold text-white/80 uppercase tracking-wider mb-1">Phone Number*</label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/50">
+                  <span className="text-xs font-bold font-sans">+91</span>
+                </span>
+                <input
+                  type="tel"
+                  required
+                  value={heroForm.phone}
+                  onChange={(e) => setHeroForm({...heroForm, phone: e.target.value})}
+                  placeholder="Mobile Number"
+                  className={`w-full pl-11 pr-3 py-2 bg-white/5 border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs text-white`}
+                />
+              </div>
+              {errors.phone && <p className="text-red-500 text-[10px] mt-0.5">{errors.phone}</p>}
+            </div>
+
+            <div>
+              <label className="block text-[10px] font-semibold text-white/80 uppercase tracking-wider mb-1">Email Address*</label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/40">
+                  <Mail size={14} />
+                </span>
+                <input
+                  type="email"
+                  required
+                  value={heroForm.email}
+                  onChange={(e) => setHeroForm({...heroForm, email: e.target.value})}
+                  placeholder="name@domain.com"
+                  className={`w-full pl-9 pr-3 py-2 bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs text-white`}
+                />
+              </div>
+              {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email}</p>}
+            </div>
+
+            <div>
+              <label className="block text-[10px] font-semibold text-white/80 uppercase tracking-wider mb-1">Interested BHK*</label>
+              <select
+                value={heroForm.config}
+                onChange={(e) => setHeroForm({...heroForm, config: e.target.value})}
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-gold text-xs text-white [&>option]:text-navy"
+              >
+                <option value="2 BHK">2 BHK Apartments</option>
+                <option value="2.5 BHK">2.5 BHK Apartments</option>
+                <option value="3 BHK">3 BHK Apartments</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#C9A227] hover:bg-gold-light text-[#1a2744] font-black py-2.5 px-4 rounded-lg transition-all duration-300 shadow-md uppercase tracking-wider text-xs"
+            >
+              Get Best Price
+            </button>
+          </form>
+        </div>
+
         {/* Mobile-only building render image */}
         <div className="w-full mt-6 block lg:hidden z-[3] px-2 max-w-sm">
           <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
@@ -356,96 +442,19 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Right Column: Dark Form Card (semi-transparent bg rgba(10, 15, 35, 0.85) vertically centered, hidden on mobile/tablet) */}
-      <div className="hidden lg:flex lg:col-span-5 w-full justify-center z-[3] lg:self-center">
-        <div className="bg-[#0a0f23]/85 backdrop-blur-md border border-white/10 w-full max-w-md rounded-xl shadow-2xl p-4 sm:p-8">
-
-          <div className="text-center mb-3 sm:mb-6">
-            <h3 className="text-sm sm:text-lg font-black text-white uppercase tracking-wider">
-              BOOK YOUR NEW HOME
-            </h3>
-            <div className="w-10 h-[2px] bg-gold mx-auto mt-1 sm:mt-2 rounded-full"></div>
-          </div>
-
-          <form onSubmit={handleHeroSubmit} className="space-y-3 sm:space-y-4">
-            <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-white/80 uppercase tracking-wider mb-1">Full Name*</label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/40">
-                  <User size={14} />
-                </span>
-                <input
-                  type="text"
-                  required
-                  value={heroForm.name}
-                  onChange={(e) => setHeroForm({...heroForm, name: e.target.value})}
-                  placeholder="John Doe"
-                  className={`w-full pl-9 pr-3 py-1.5 sm:py-2 bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs sm:text-sm text-white`}
-                />
-              </div>
-              {errors.name && <p className="text-red-500 text-[10px] mt-0.5">{errors.name}</p>}
-            </div>
-
-            <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-white/80 uppercase tracking-wider mb-1">Phone Number*</label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/50">
-                  <span className="text-[10px] sm:text-xs font-bold font-sans">+91</span>
-                </span>
-                <input
-                  type="tel"
-                  required
-                  value={heroForm.phone}
-                  onChange={(e) => setHeroForm({...heroForm, phone: e.target.value})}
-                  placeholder="Mobile Number"
-                  className={`w-full pl-11 pr-3 py-1.5 sm:py-2 bg-white/5 border ${errors.phone ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs sm:text-sm text-white`}
-                />
-              </div>
-              {errors.phone && <p className="text-red-500 text-[10px] mt-0.5">{errors.phone}</p>}
-            </div>
-
-            <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-white/80 uppercase tracking-wider mb-1">Email Address*</label>
-              <div className="relative">
-                <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-white/40">
-                  <Mail size={14} />
-                </span>
-                <input
-                  type="email"
-                  required
-                  value={heroForm.email}
-                  onChange={(e) => setHeroForm({...heroForm, email: e.target.value})}
-                  placeholder="name@domain.com"
-                  className={`w-full pl-9 pr-3 py-1.5 sm:py-2 bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg focus:outline-none focus:border-gold text-xs sm:text-sm text-white`}
-                />
-              </div>
-              {errors.email && <p className="text-red-500 text-[10px] mt-0.5">{errors.email}</p>}
-            </div>
-
-            <div>
-              <label className="block text-[10px] sm:text-xs font-semibold text-white/80 uppercase tracking-wider mb-1">Interested BHK*</label>
-              <select
-                value={heroForm.config}
-                onChange={(e) => setHeroForm({...heroForm, config: e.target.value})}
-                className="w-full px-3 py-1.5 sm:py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-gold text-xs sm:text-sm text-white [&>option]:text-navy"
-              >
-                <option value="2 BHK">2 BHK Apartments</option>
-                <option value="2.5 BHK">2.5 BHK Apartments</option>
-                <option value="3 BHK">3 BHK Apartments</option>
-              </select>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#C9A227] hover:bg-gold-light text-[#1a2744] font-black py-2.5 sm:py-3 px-4 rounded-lg transition-all duration-300 shadow-md uppercase tracking-wider text-xs sm:text-sm"
-            >
-              Get Best Price
-            </button>
-
-            <p className="text-[9px] sm:text-[10px] text-white/50 text-center leading-normal pt-0.5">
-              By submitting you agree to be contacted by our team
-            </p>
-          </form>
+      {/* Right Column: Wide Building Render Image (hidden on mobile/tablet) */}
+      <div className="hidden lg:block lg:col-span-7 w-full z-[3] pl-6">
+        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0a0f23]/40 backdrop-blur-sm">
+          <Image 
+            src="/images/hero-img-d.png" 
+            alt="IJM First City Building Render" 
+            width={850} 
+            height={550} 
+            className="w-full h-auto object-cover" 
+            priority
+          />
+          {/* Soft gradient edge fade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1128]/20 to-transparent"></div>
         </div>
       </div>
 
@@ -1690,47 +1699,25 @@ export default function LandingPage() {
         </div>
       </footer>
 
-      {/* Sticky Bottom Navigation Bar for Mobile: Premium Floating Action Pill */}
-      <div className="fixed bottom-5 left-4 right-4 z-50 md:hidden flex gap-2.5 p-2 bg-[#0a1128]/85 backdrop-blur-md border border-white/10 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+      {/* Unified Floating Circular Action Buttons (WhatsApp & Call Symbols) */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <a 
+          href="https://wa.me/919920511119"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.4)] active:scale-95 hover:scale-105 transition-all duration-200"
+          aria-label="WhatsApp Chat"
+        >
+          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </a>
         <a 
           href="tel:+919920511119"
-          className="flex-1 py-3 flex items-center justify-center gap-2 bg-gradient-to-r from-[#C9A227] to-[#b08c1d] hover:from-[#b08c1d] hover:to-[#C9A227] text-[#0a1128] font-black text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all duration-200"
+          className="w-14 h-14 bg-[#C9A227] hover:bg-gold-light text-[#0a1128] flex items-center justify-center rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.4)] border border-gold/20 active:scale-95 hover:scale-105 transition-all duration-200"
+          aria-label="Call Sales"
         >
-          <Phone size={14} className="text-[#0a1128]" />
-          <span>Call Sales</span>
-        </a>
-        <a 
-          href="https://wa.me/919920511119"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 py-3 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all duration-200"
-        >
-          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-          <span>WhatsApp Chat</span>
-        </a>
-      </div>
-
-      {/* Large screen Floating Widgets */}
-      <div className="fixed bottom-6 right-6 z-40 hidden md:flex flex-col space-y-3">
-        <a 
-          href="https://wa.me/919920511119"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-5 py-3 rounded-full shadow-2xl transition-all duration-300 text-sm hover:scale-105 animate-pulse-green"
-        >
-          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-          <span>WhatsApp Chat</span>
-        </a>
-        <a 
-          href="tel:+91-9920511119"
-          className="flex items-center gap-2 bg-[#0f1e3d] hover:bg-navy text-[#C9A227] font-bold px-5 py-3 rounded-full shadow-2xl border border-gold/20 transition-all duration-300 text-sm hover:scale-105 animate-pulse-blue"
-        >
-          <Phone size={16} className="text-gold" />
-          <span>Call Sales Agent</span>
+          <Phone size={22} className="text-[#0a1128]" />
         </a>
       </div>
 
