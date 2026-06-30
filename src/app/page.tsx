@@ -502,7 +502,7 @@ export default function LandingPage() {
             {/* Description Text */}
             <div className="lg:col-span-6 space-y-6 lg:pl-4">
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                FCP Harmony is a premium gated community inside our 31-acre international township in MIHAN, Nagpur. Spanning 7.5 acres with 690 luxury apartments, these modern towers (G+Podium+15 Floors) feature 2 levels of secure parking, 3 open ventilation sides, and resort-style amenities.
+                FCP Harmony is a premium 7.5-acre gated enclave of 690 luxury apartments inside MIHAN&apos;s landmark 31-acre international township. The modern G+Podium+15 towers feature secure double-level parking, 3 open ventilation sides, and resort-style amenities.
               </p>
 
               <blockquote className="border-l-4 border-gold pl-4 py-3 italic text-navy font-semibold bg-gray-50 text-sm sm:text-base">
@@ -551,7 +551,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">7.5 Acres Gated Paradise</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Harmony occupies 7.5 acres of beautifully masterplanned layouts inside a larger, secure, fully gated premium integrated township.
+                7.5 acres of masterplanned layouts inside a secure, fully gated premium integrated township.
               </p>
             </div>
 
@@ -562,7 +562,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">Premium Infrastructure</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                6 grand residential towers rising G + Podium + 15 residential floors, structured with advanced RCC Shear Wall technology.
+                6 grand residential towers built with advanced RCC Shear Wall technology (G + Podium + 15 floors).
               </p>
             </div>
 
@@ -573,7 +573,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">100+ World-Class Amenities</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Over 100 indoor & outdoor amenities, including double-height clubhouse, Miyawaki forest, party lawns, and sports courts.
+                Over 100 indoor & outdoor amenities including a double-height clubhouse, Miyawaki forest, and sports courts.
               </p>
             </div>
 
@@ -584,7 +584,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">3-Side Open Ventilation</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                The Harmony towers are designed with open space on 3 sides to provide unmatched natural cross-ventilation and sunlight.
+                Designed with open space on 3 sides to provide unmatched natural cross-ventilation and sunlight.
               </p>
             </div>
 
@@ -595,7 +595,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">Efficient Layout Designs</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Choose from a range of layout carpet sizes (849 - 1417 Sq.ft.) designed for zero-space wastage and maximum family comfort.
+                Smart layout designs (849 - 1417 Sq.ft.) with zero space wastage for maximum family comfort.
               </p>
             </div>
 
@@ -606,7 +606,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-3">Investment Value</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Located right in the heart of Mihan SEZ (Nagpur&apos;s primary IT hub). High rental yields and strong capital appreciation potential.
+                Located in the heart of MIHAN SEZ (Nagpur&apos;s primary IT hub) with high rental yields and capital growth.
               </p>
             </div>
 
@@ -760,7 +760,9 @@ export default function LandingPage() {
             <span className="text-[#C9A227] font-bold text-xs uppercase tracking-widest block mb-2">RESORT LIVING</span>
             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-navy text-center tracking-tight leading-tight">100+ Amenities Par Excellence</h2>
             <div className="w-12 h-[3px] bg-[#C9A227] mt-4 rounded-full"></div>
-            {/* Grid Layout: 2 columns on mobile, 4 columns on desktop */}
+          </div>
+
+          {/* Grid Layout: 2 columns on mobile, 4 columns on desktop */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             
             {/* Amenity 1 */}
@@ -868,7 +870,6 @@ export default function LandingPage() {
             </div>
 
           </div>
-          </div>
 
           <div className="mt-12 text-center">
             <button 
@@ -967,7 +968,7 @@ export default function LandingPage() {
                   <div className="lg:w-1/2 space-y-6">
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">2 BHK Typical Layout</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Features a well-divided layout with a large living and dining area, master bedroom with attached bathroom, guest bedroom, utility balcony, and shared bathroom.
+                      A smart layout featuring a spacious living/dining area, master bedroom with attached bathroom, guest bedroom, and a private balcony.
                     </p>
                     <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                       <li className="flex items-center gap-2.5">
@@ -1011,7 +1012,7 @@ export default function LandingPage() {
                   <div className="lg:w-1/2 space-y-6">
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">2.5 BHK Typical Layout</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Features an additional flexible room perfect for a private home office, child study, or prayer room, alongside standard living, kitchen, and two bedrooms.
+                      Includes a flexible half-bedroom ideal for a private office, study, or prayer room alongside standard premium living spaces.
                     </p>
                     <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                       <li className="flex items-center gap-2.5">
@@ -1055,7 +1056,7 @@ export default function LandingPage() {
                   <div className="lg:w-1/2 space-y-6">
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">3 BHK Typical Layout</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Designed for larger families desiring luxury. Offers a grand foyer entrance, large modular kitchen spaces, servant/utility balconies, and three spacious private bedrooms.
+                      Crafted for spacious luxury with a grand foyer entrance, large modular kitchen, utility balconies, and three private bedrooms.
                     </p>
                     <ul className="space-y-3 text-sm sm:text-base text-gray-600">
                       <li className="flex items-center gap-2.5">
@@ -1309,11 +1310,11 @@ export default function LandingPage() {
               <div className="w-12 h-1 bg-gold"></div>
               
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                IJM India Infrastructure Limited (IJMII) is a key subsidiary of IJM Corporation Berhad, a prominent Malaysian multinational conglomerate operating across 4 core business sectors and spanning 8 countries globally.
+                IJM India Infrastructure Limited (IJMII) is a key subsidiary of the Malaysian multinational conglomerate IJM Corporation Berhad.
               </p>
               
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                With decades of infrastructure, building construction and property development expertise in India, IJMII actively shapes sustainable communities, state-of-the-art highways, and urban housing.
+                With over 25 years of construction expertise in India, IJMII actively shapes sustainable communities and landmark infrastructure.
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-6 border-t border-white/10">
@@ -1349,7 +1350,7 @@ export default function LandingPage() {
               </div>
 
               <p className="text-gray-400 text-sm leading-relaxed">
-                NITPL delivers global construction standards and smart engineering to Central India. We are dedicated to building high-quality, transparently-managed homes that enhance connectivity and capital value.
+                NITPL delivers global engineering standards to Central India, building high-quality, transparently-managed residential spaces.
               </p>
 
               <div className="p-4 bg-navy-dark/45 border-l-2 border-gold rounded-r-lg text-xs text-gray-300">
@@ -1498,7 +1499,7 @@ export default function LandingPage() {
                 <Star size={16} fill="#C9A227" />
               </div>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 italic">
-                &ldquo;We bought our 3 BHK in Symphony Phase-1. The construction quality is absolutely top-notch, and the spacing between towers offers real privacy. The gated security makes it feel extremely safe for our children.&rdquo;
+                &ldquo;The construction quality is absolutely top-notch, and the spacing between towers offers real privacy. The gated security makes it feel extremely safe.&rdquo;
               </p>
               <div>
                 <h4 className="font-bold text-navy text-sm sm:text-base">Anil Deshmukh</h4>
@@ -1516,7 +1517,7 @@ export default function LandingPage() {
                 <Star size={16} fill="#C9A227" />
               </div>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 italic">
-                &ldquo;The ventilation inside the flat is excellent since it is open on 3 sides. We get clean air and sunlight all day. Being just 5 minutes away from AIIMS hospital and close to the airport is a huge location advantage.&rdquo;
+                &ldquo;Excellent ventilation as the flats are open on 3 sides. Being just 5 minutes from AIIMS and close to the airport is a huge advantage.&rdquo;
               </p>
               <div>
                 <h4 className="font-bold text-navy text-sm sm:text-base">Priya Kulkarni</h4>
@@ -1534,7 +1535,7 @@ export default function LandingPage() {
                 <Star size={16} fill="#C9A227" />
               </div>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 italic">
-                &ldquo;Corporate developer reputation is what made us invest in Harmony towers. The payment schemes are transparent, and structural reports are shared. The clubhouse and Miyawaki forest layouts are beautiful.&rdquo;
+                &ldquo;IJM&apos;s corporate reputation is why we invested. The payment schemes are transparent, and possession timelines are strictly followed.&rdquo;
               </p>
               <div>
                 <h4 className="font-bold text-navy text-sm sm:text-base">Ramesh Jha</h4>
