@@ -275,13 +275,13 @@ export default function LandingPage() {
       {/* Redesigned Hero: Full Viewport, Full Bleed Building Background with Dark Overlay */}
       <section
       id="hero"
-      className="relative pt-24 pb-16 lg:min-h-screen lg:pt-0 lg:pb-0 flex flex-col lg:flex-row items-center justify-start lg:justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
+      className="relative pt-20 pb-16 lg:min-h-screen lg:pt-0 lg:pb-0 flex flex-col lg:flex-row items-center justify-start lg:justify-center bg-[#0a1128] bg-cover bg-center overflow-hidden z-10"
       style={isMobile ? {} : { backgroundImage: "url('/images/hero_sec_bg.png')", backgroundPosition: "center", backgroundSize: "cover" }}
       >
       {/* Dark overlay: rgba(15, 20, 40, 0.65) */}
       <div className="absolute inset-0 bg-[#0f1428]/65 z-[2]"></div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-12 lg:py-24 z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
 
       {/* Left Column: Over the image content (Aligned self-end/bottom-left on desktop) */}
       <div className="lg:col-span-5 text-center lg:text-left space-y-4 lg:space-y-6 z-[3] text-white flex flex-col items-center lg:items-start w-full">
